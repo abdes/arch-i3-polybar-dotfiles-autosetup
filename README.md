@@ -14,7 +14,7 @@ Follow instructions at https://wiki.archlinux.org/index.php/installation_guide w
 > Everything that follows is relevant for an installtion of **64 bit** system with an **EFI** boot.
 
 * Check your boot type especially if you are planning to use EFI. If installing on a VM using VmWare, select EFI boot in VM Settings->Options->Advanced->Firmware Type.
-* Set timezone and correct date/time (enable ntp) using [```timedatectl(1)```](https://jlk.fjfi.cvut.cz/arch/manpages/man/timedatectl.1)
+* Set timezone and correct date/time (enable ntp) using [`timedatectl(1)`](https://jlk.fjfi.cvut.cz/arch/manpages/man/timedatectl.1)
 * Partition the disk and format the partitions properly. Recommended layout for EFI/GPT in teh table below.
 
 
