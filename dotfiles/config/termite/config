@@ -1,0 +1,43 @@
+[options]
+scrollback_lines = 50000
+
+[colors]
+
+# special
+foreground      = #f1e9ef
+foreground_bold = #f1e9ef
+cursor          = #f1e9ef
+background      = #15151e
+
+# black
+color0  = #15151e
+color8  = #615e60
+
+# red
+color1  = #794d68
+color9  = #b8929c
+
+# green
+color2  = #5f755a
+color10 = #85a876
+
+# yellow
+color3  = #887f68
+color11 = #d0c49c
+
+# blue
+color4  = #585e76
+color12 = #7989b4
+
+# magenta
+color5  = #6e5777
+color13 = #bdaaef
+
+# cyan
+color6  = #5a787e
+color14 = #99afb1
+
+# white
+color7  = #ccc6c7
+color15 = #f8f8f2
+

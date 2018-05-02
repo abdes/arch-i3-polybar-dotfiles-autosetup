@@ -1,0 +1,5 @@
+!rofi.fullscreen: true
+rofi.theme: iron
+rofi.font: Hack 11
+rofi.lines: 10
+

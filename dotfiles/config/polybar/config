@@ -1,0 +1,577 @@
+
+[colors]
+;background = ${xrdb:color0:#222}
+;background = #222
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+;foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+alert = ${xrdb:red}
+
+active = ${xrdb:active}
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
+urgent = ${xrdb:red}
+secondary = ${xrdb:secondary}
+underline = ${xrdb:active}
+
+black = ${xrdb:black}
+gold = ${xrdb:gold}
+
+
+[settings]
+screenchange-reload = true
+;throttle-output-for = 10
+;throttle-output = 5
+;throttle-input-for = 40
+
+;compositing-background = over
+;compositing-background = screen
+;compositing-foreground = xor
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+
+;###########################################################################
+;###########################################################################
+; Top Bar
+;###########################################################################
+;###########################################################################
+
+[bar/top]
+enable-ipc = true
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+;radius = 6.0
+fixed-center = false
+
+;background = ${colors.black}
+background = transparent
+foreground = ${colors.gold}
+
+line-size = 3
+line-color = ${colors.black}
+
+border-size = 0
+border-color = ${colors.background}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+
+font-0 = "PowerlineSymbols:size=20;5"
+font-1 = "System San Francisco Display:size=10;2"
+font-2 = "MaterialIcons:size=11;4"
+font-3 = "Hack:size=11;2"
+
+
+modules-left = i3
+;modules-center = mpd
+;modules-center = xwindow
+modules-right = arrowLeft5 volume arrowLeft2 date arrowLeft powermenu arrowLeft2
+
+tray-position = right 
+tray-padding = 2
+;tray-transparent = true
+tray-background = ${colors.gold}
+;dim-value = 0.2
+
+;click-left =
+;click-middle =
+;click-right =
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+;double-click-left = notify-send -u low doubleclick
+;double-click-right = notify-send -u low doubleclick2
+
+# bar/module specific vars
+;i3wm-focused-underline = ${colors.linecolor}
+;i3wm-focused-overline = #00000000
+
+;###########################################################################
+;###########################################################################
+; Bottom Bar 
+;###########################################################################
+;###########################################################################
+
+[bar/bottom]
+enable-ipc = true
+#monitor = ${env:MONITOR:HDMI-1}
+;override-redirect = true
+
+bottom = true
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+;radius = 6.0
+fixed-center = true
+
+;background = ${colors.black}
+background = transparent
+foreground = ${colors.gold}
+
+line-size = 3
+line-color = ${colors.black}
+
+border-size = 0
+;border-color = ${colors.background}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+; Fonts are defined using <font-name>;<vertical-offset>
+; Font names are specified using a fontconfig pattern.
+font-0 = "PowerlineSymbols:size=20;5"
+font-1 = "System San Francisco Display:size=10;2"
+font-2 = "MaterialIcons:size=11;4"
+font-3 = "Hack:size=11;2"
+
+modules-left = 
+modules-center = arrowLeft3 fs-root fs-tmp memory cpu temperature arrowLeft xkeyboard arrowRight eth arrowRight3
+modules-right = 
+
+tray-position =  
+tray-padding = 2
+;tray-transparent = true
+tray-background = ${colors.gold}
+
+
+;###########################################################################
+;###########################################################################
+; Filesystem Modules
+;###########################################################################
+;###########################################################################
+
+[module/fs-root]
+type = internal/fs
+interval = 25
+mount-0 = /
+
+label-mounted = " %mountpoint% %free% "
+label-mounted-background = ${colors.gold}
+label-mounted-foreground = ${colors.black}
+
+format-mounted = <label-mounted>
+format-mounted-prefix = "  "
+format-mounted-prefix-foreground = ${colors.black}
+format-mounted-prefix-background = ${colors.gold}
+format-mounted-underline = ${colors.gold}
+
+label-unmounted = %mountpoint% not mounted
+;label-unmounted-foreground = ${colors.foreground}
+label-unmounted-foreground = ${colors.foreground}
+label-unmounted-background = #0a6cf5
+
+[module/fs-tmp]
+type = internal/fs
+interval = 25
+mount-0 = /tmp
+
+label-mounted = " %mountpoint% %free% "
+label-mounted-background = ${colors.gold}
+label-mounted-foreground = ${colors.black}
+
+format-mounted = <label-mounted>
+format-mounted-prefix = "  "
+format-mounted-prefix-foreground = ${colors.black}
+format-mounted-prefix-background = ${colors.gold}
+format-mounted-underline = ${colors.gold}
+
+label-unmounted = %mountpoint% not mounted
+;label-unmounted-foreground = ${colors.foreground}
+label-unmounted-foreground = ${colors.foreground}
+label-unmounted-background = #0a6cf5
+
+
+;###########################################################################
+;###########################################################################
+; Network Module
+;###########################################################################
+;###########################################################################
+
+[module/eth]
+type = internal/network
+interface = ens33
+interval = 3.0
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+label-connected = "%local_ip%   %downspeed:7%  %upspeed:7% "
+label-connected-foreground = ${colors.black}
+label-connected-background = ${colors.gold}
+
+format-connected-underline = ${colors.gold}
+format-connected-prefix = "  "
+format-connected-prefix-foreground = ${colors.black}
+format-connected-prefix-background = ${colors.gold}
+
+
+[module/vpn]
+type = custom/script
+exec = pgrep openvpn >/dev/null && printf "up\n" || printf "down\n"
+interval = 5
+label = %output%
+format-underline = #268bd2
+format-prefix = "vpn: "
+format-spacing = 1
+
+format-prefix-foreground = ${colors.foreground-alt}
+
+
+;###########################################################################
+;###########################################################################
+; Date & Time Module
+;###########################################################################
+;###########################################################################
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%d %b "
+date-alt = "%A, %d/%m/%Y"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+;format-prefix =
+;format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.gold}
+format-background = ${colors.gold}
+format-foreground = ${colors.black}
+label = " %date%  %time% "
+
+
+;###########################################################################
+;###########################################################################
+; Volume Module
+;###########################################################################
+;###########################################################################
+
+[module/volume]
+type = internal/pulseaudio
+; Soundcard to be used
+; Usually in the format hw:#
+; You can find the different card numbers in `/proc/asound/cards`
+master-soundcard = default
+; Name of the master mixer
+; Default: Master
+master-mixer = Master
+; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
+; Default: false
+mapped = true
+; change the format to display ramp/bar/both
+format-volume = "<ramp-volume> <bar-volume> <label-volume> "
+format-volume-background = ${colors.black}
+label-volume-foreground = #BA6B57
+format-muted = "    "
+format-muted-background = ${colors.black}
+format-muted-foreground = #BA6B57
+; Volume ramp setup
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-foreground = #BA6B57 
+; Volume bar setup
+bar-volume-width = 15
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+bar-volume-indicator = |
+bar-volume-indicator-font = 1
+bar-volume-fill = -
+bar-volume-fill-font = 1
+bar-volume-empty = -
+bar-volume-empty-font = 1
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+;###########################################################################
+;###########################################################################
+; Power Menu Module
+;###########################################################################
+;###########################################################################
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+label-active-font = 1
+format-background = ${colors.black}
+label-open = "   "
+label-open-foreground = #BA6B57 
+label-close = "   "
+label-close-foreground = ${colors.urgent}
+label-separator = |
+label-separator-foreground = ${colors.secondary}
+
+menu-0-0 = logout
+menu-0-0-exec = menu-open-1
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-2
+menu-0-2 = power off
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = logout
+menu-1-1-exec = i3-msg exit
+
+menu-2-0 = cancel
+menu-2-0-exec = menu-open-0
+menu-2-1 = reboot
+menu-2-1-exec = sudo reboot
+
+menu-3-0 = power off
+menu-3-0-exec = sudo poweroff
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
+
+;###########################################################################
+;###########################################################################
+; System Monitors Modules
+;###########################################################################
+;###########################################################################
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+;blacklist-0 = caps lock
+;blacklist-1 = num lock
+;blacklist-2 = scroll lock
+
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = <label-layout><label-indicator>
+;format-spacing = 0
+
+;format-prefix = ""
+;format-prefix-foreground = ${colors.secondary}
+;format-prefix-underline = ${colors.secondary}
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %layout%
+label-layout = 
+label-layout-padding = 2
+;label-layout-background = #bc99ed
+label-layout-foreground = ${colors.foreground}
+;label-layout-underline = ${colors.secondary}
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = ""
+label-indicator-padding = 2
+;label-indicator-margin = 1
+label-indicator-foreground = #BA6B57
+label-indicator-background = ${colors.black}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.black}
+format-underline = ${colors.gold}
+format-background = ${colors.gold}
+
+label = "%percentage%% "
+label-foreground = ${colors.black}
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format-prefix = " "
+format-prefix-foreground = ${colors.black}
+format-underline = ${colors.gold}
+format-background = ${colors.gold}
+
+label = %percentage_used%%
+label-foreground = ${colors.black}
+
+
+;###########################################################################
+;###########################################################################
+; Workspaces Modules
+;###########################################################################
+;###########################################################################
+
+[module/xwindow]
+type = internal/xwindow
+label = " %title:0:50:...% "
+label-maxlen = 100
+label-foreground = ${colors.black}
+label-background = ${colors.gold}
+label-underline = ${colors.gold}
+
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index% %icon%
+label-focused-background = ${colors.black}
+label-focused-underline = ${colors.gold}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index% %icon%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index% %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index% %icon%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+
+label-focused-foreground = #BA6B57 
+label-visible-foreground = ${colors.active}
+label-unfocused-foreground = ${colors.secondary}
+label-unfocused-background = ${colors.black}
+label-urgent-foreground = ${colors.gold}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+#      
+
+
+
+;###########################################################################
+;###########################################################################
+; Powerline-like Arrows Modules
+;###########################################################################
+;###########################################################################
+
+[module/arrowLeft]
+type = custom/text
+content = ""
+content-foreground = ${colors.black}
+content-background = ${colors.gold}
+
+[module/arrowLeft2]
+inherit = module/arrowLeft
+content-foreground = ${colors.gold}
+content-background = ${colors.black}
+
+[module/arrowLeft3]
+inherit = module/arrowLeft
+content-foreground = ${colors.gold}
+content-background = transparent
+
+[module/arrowLeft4]
+inherit = module/arrowLeft
+content-foreground = ${xrdb:color7}
+content-background = ${colors.gold}
+
+[module/arrowLeft5]
+inherit = module/arrowLeft
+content-foreground = ${colors.black}
+content-background = transparent
+
+
+[module/arrowRight]
+type = custom/text
+content = ""
+content-foreground = ${colors.black}
+content-background = ${colors.gold}
+
+[module/arrowRight2]
+inherit = module/arrowRight
+content-foreground = ${colors.gold}
+content-background = ${colors.black}
+
+[module/arrowRight3]
+inherit = module/arrowRight
+content-foreground = ${colors.gold}
+content-background = transparent
+
+[module/arrowRight4]
+inherit = module/arrowRight
+content-foreground = ${xrdb:color7}
+content-background = ${colors.gold}
+
+; vim:ft=dosini
+
+
+

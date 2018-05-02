@@ -1,0 +1,133 @@
+!--------------------
+!-------COLORS-------
+!--------------------
+
+#define P_black_onyx     #2B272B
+#define P_periscope      #46444C
+#define P_neutral_gray   #8E918F
+#define P_harbor_mist    #AFB1B4
+#define P_coconut_milk   #F0EDE5
+#define P_warm_sand      #C5AE91
+#define P_dull_gold      #846D3D
+#define P_emperador      #684832
+#define P_meadowlark     #EAD94E
+#define P_cherry_tomato  #EB3C27
+#define P_grenadine      #DF3F32
+#define P_flame_scarlet  #CD212A
+#define P_mars_red       #BC2731
+#define P_love_symbol_2  #563B64
+#define P_pink_lavender  #D9AFCA
+#define P_sailor_blue    #0E3A53
+#define P_shaded_spruce  #00585E
+#define P_arcadia        #00A28A
+
+
+!------- Color Palette -------
+!-----------------------------
+*beige:      P_warm_sand
+*black:      P_black_onyx
+*blue:       P_sailor_blue
+*brown:      P_emperador
+*cyan:       P_arcadia
+*gold:       P_dull_gold
+*green:      P_shaded_spruce
+*grey_light: P_harbor_mist
+*grey:       P_neutral_gray
+*grey_dark:  P_periscope
+*orange:     P_cherry_tomato
+*pink:       P_pink_lavender
+*purple:     P_love_symbol_2
+*red_light:  P_grenadine
+*red:        P_flame_scarlet
+*red_dark:   P_mars_red
+*white:      P_coconut_milk
+*yellow:     P_meadowlark
+
+*secondary:  P_neutral_gray
+*active:     P_arcadia
+
+
+*background:             P_black_onyx
+*foreground:             P_neutral_gray
+*fadeColor:              P_black_onyx
+*cursorColor:            #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+
+
+
+*color0:                P_black_onyx
+*color8:                P_periscope
+*color1:  #8E3C36 
+!chili oil
+*color9:  #CD212A 
+!flame scarlett
+*color2:  #684832
+!tree top
+*color10: #44883C
+!online lime
+*color3:  #B68A3A 
+!harvest gold
+*color11: #ECA825
+!old gold
+*color4:  #897560 
+!sepia tint
+*color12: #C5AE91 
+!warm sand
+*color5:  #846D3D 
+!dull gold
+*color13: #A97C50 
+!marron clair royal font
+*color6:  #BA6B57 
+!copper coin
+*color14: #DE8E65 
+!copper tan
+*color7:  #A2A2A1 
+!silver
+*color15: #C2B59B 
+!taupe clair 
+
+
+!!! Black + DarkGrey
+!*color0:                P_black_onyx
+!*color8:                P_periscope
+!
+!!! DarkRed + Red
+!*color1:                P_flame_scarlet
+!*color9:                P_grenadine
+!
+!!! DarkGreen + Green
+!*color2:                P_treetop
+!*color10:               P_greenery
+!
+!!! DarkYellow + Yellow
+!*color3:                P_lemon_curry
+!*color11:               P_meadowlark
+!
+!!! DarkBlue + Blue
+!*color4:                P_palace_blue
+!*color12:               P_little_blue_boy
+!
+!!! DarkMagenta + Magenta
+!*color5:                P_love_symbol_2
+!*color13:               P_royal_lilac
+!
+!!! DarkCyan + Cyan
+!*color6:                P_shaded_spruce
+!*color14:               P_arcadia
+!
+!!! LightGrey + White
+!*color7:                P_harbor_mist
+!*color15:               P_coconut_milk
+!
+
+
+!------- Solarized colors
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green #859900

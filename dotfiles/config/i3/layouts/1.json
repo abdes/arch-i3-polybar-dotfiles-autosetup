@@ -1,0 +1,21 @@
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1072,
+       "width": 1136,
+       "x": 1152,
+       "y": 38
+    },
+    "name": "Welcome - Visual Studio Code",
+    "percent": 1,
+    "swallows": [
+       {
+          "class": "^Code$",
+          "instance": "^code$"
+       }
+    ],
+    "type": "con"
+}
+
