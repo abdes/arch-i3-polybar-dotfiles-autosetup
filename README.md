@@ -105,7 +105,7 @@ All dotfiles will be installed in their places at the home directory.
 After the setup is finished, it will be possible to select which environment to use from the display manager login.
 
 ```
-# 210.Install-desktop.shh
+# 210.Install-desktop.sh
 ```
 
 
