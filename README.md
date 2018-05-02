@@ -1,4 +1,4 @@
-This is my attempt to share my custom environment for development built on Arc Linux, using i3wm as my window manager. All dotfiles and a couple of scripts are included to automate as much as possible the setup. The scripts in general play nice and do not attempt at destroying exsiting stuff. It is recommended however to either do this setup on a new machine, a VM or at least on a new fresh user.
+This is my attempt to share my custom environment for development built on Arch Linux, using i3wm as my window manager. All dotfiles and a couple of scripts are included to automate as much as possible the setup. The scripts in general play nice and do not attempt at destroying exsiting stuff. It is recommended however to either do this setup on a new machine, a VM or at least on a new fresh user.
 
 All files are provided under BSD 3-Clause License and as such, you can do anything with them as long as you understand clasue 3 :-).
 
@@ -59,9 +59,9 @@ Follow instructions at https://wiki.archlinux.org/index.php/installation_guide w
 * Login with the new user account
 
 ## 130 - Get the setup scripts
->
-> TO BE ADDED
->
+
+Clone the repo from github / download zip from github /etc. Whatever the method you use, keep the same structure of the directories and files for the scripts to work transparently.
+
 
 ## 140 - Update mirror list for speed
 
