@@ -12,8 +12,8 @@
     "percent": 1,
     "swallows": [
        {
-          "class": "^Code$",
-          "instance": "^code$"
+          "class": "^code-oss$",
+          "instance": "^code-oss$"
        }
     ],
     "type": "con"

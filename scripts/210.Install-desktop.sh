@@ -32,7 +32,7 @@ packages=(
 	"hplip"
 	"system-config-printer"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 check_enable_service org.cups.cupsd.service
 check_start_service org.cups.cupsd.service
 
@@ -48,7 +48,7 @@ packages=(
 	"alsa-lib"
 	"alsa-firmware"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 
 # Then pulseaudio
 packages=(
@@ -56,7 +56,7 @@ packages=(
 	"pulseaudio-alsa"
 	"pavucontrol"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 
 ################################################################################
 # Terminal tools
@@ -72,7 +72,7 @@ packages=(
 	"neofetch"
 	"wget"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 # Change shell to zsh
 new_shell='/usr/bin/zsh'
 if [ $SHELL != $new_shell ]; then
@@ -94,7 +94,7 @@ packages=(
 	"arj"
 	"cabextract"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 
 ################################################################################
 # Xorg, drivers and additional apps/tools for Xorg
@@ -149,7 +149,7 @@ packages=(
 	"xorg-twm"
 	"compton"
 )
-aurman -S --noconfirm --needed $drivers $packages
+yay -S --noconfirm --needed ${drivers[@]} ${packages[@]}
 
 ################################################################################
 # Additional Fonts
@@ -171,7 +171,7 @@ packages=(
 	"ttf-material-design-icons"
 	"adobe-source-code-pro-fonts"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 
 ################################################################################
 # OpenBox Window Manager as an alternative
@@ -181,7 +181,7 @@ packages=(
 	"openbox"
 	"obconf"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 
 ################################################################################
 # GUI applications
@@ -204,7 +204,7 @@ packages_opt=(
 	"thunderbird"
 	"lxappearance-gtk3"
 )
-aurman -S --noconfirm --needed $packages_must $packages_opt
+yay -S --noconfirm --needed ${packages_must[@]} ${packages_opt[@]}
 
 ################################################################################
 # i3wm and polybar
@@ -216,10 +216,10 @@ packages=(
 	"i3blocks"
 	"i3-gaps"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 # Polybar must be built after i3wm is installed or it will not be enabled
 shw_grey "Installing polybar"
-aurman -S --noconfirm --needed polybar-git
+yay -S --noconfirm polybar-git
 
 ################################################################################
 # Themes
@@ -231,7 +231,7 @@ packages=(
 	"gtk-arc-flatabulous-theme"
 	"hicolor-icon-theme"
 )
-aurman -S --noconfirm --needed $packages
+yay -S --noconfirm --needed ${packages[@]}
 
 ################################################################################
 # Folders and dotfiles needed in user home
@@ -272,7 +272,7 @@ declare -A dotfiles=(
 	["config/polybar/config"]=".config/polybar/config"
 	["Xresources.d/rxvt-unicode"]=".Xresources.d/rxvt-unicode"
 	["Xresources.d/colors"]=".Xresources.d/colors"
-	[".gtkrc-2.0"]=".gtkrc-2.0"
+	["gtkrc-2.0"]=".gtkrc-2.0"
 )
 
 for file in "${!dotfiles[@]}"; do
@@ -291,7 +291,7 @@ done
 ################################################################################
 shw_norm "13. Display Manager (will be active after reboot)"
 
-aurman -S --noconfirm --needed sddm
+yay -S --noconfirm sddm
 sudo mkdir -p /etc/sddm.conf.d
 sddm --example-config | sudo tee /etc/sddm.conf.d/sddm.conf >/dev/null
 sudo systemctl enable sddm.service

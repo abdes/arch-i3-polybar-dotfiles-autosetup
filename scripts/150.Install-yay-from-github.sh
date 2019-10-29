@@ -11,7 +11,7 @@ source $(dirname $0)/shell-helpers.sh
 
 asis_warn
 echo -e ''
-shw_norm "This script will install aurman from github (https://github.com/polygamma/aurman)."
+shw_norm "This script will install yay from github (https://github.com/Jguer/yay)."
 echo -e
 shw_norm "1. Checking if you have git and installing it if needed"
 
@@ -19,11 +19,11 @@ if ! pacman -Qi git &>/dev/null; then
 	sudo pacman -S --noconfirm git
 fi
 
-aurman_repo="https://github.com/polygamma/aurman.git"
-shw_norm "2. Cloning aurman git repo from $aurman_repo"
-git clone https://github.com/polygamma/aurman.git
+yay_repo="https://github.com/Jguer/yay.git"
+shw_norm "2. Cloning yay git repo from $yay_repo"
+git clone $yay_repo
 
 shw_norm "3. Executing build-Package-Install"
-cd aurman && makepkg -si
-cd .. && rm -rf aurman
+cd yay && makepkg -si
+cd .. && rm -rf yay
 shw_norm "Done."
