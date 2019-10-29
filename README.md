@@ -76,12 +76,12 @@ Arch reflector is a tool that can test the mirrors in the pacman mirrorlist for 
 # 140.Optimize-arch-mirrors.sh
 ```
 
-### 150 - Install aurman
+### 150 - Install yay
 
-[`aurman`](https://github.com/polygamma/aurman) will help us get user contributed packages from AUR and simplify/automate their build/installation.
+[`yay`](https://github.com/Jguer/yay) will help us get user contributed packages from AUR and simplify/automate their build/installation.
 
 ```bash
-# 150.Install-aurman-from-github.sh
+# 150.Install-yay-from-github.sh
 ```
 
 ### 160 - VmWare specific instructions
